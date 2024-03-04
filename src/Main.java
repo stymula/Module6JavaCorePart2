@@ -3,7 +3,6 @@ import utils.LengthComparator;
 import utils.SongTools;
 import utils.StringTools;
 
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,7 +10,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws BeatlesException {
-
+        // Collections / Arrays
         // PART 1
         String song = "In the town where I was born\n" +
                 "Lived a man who sailed to sea\n" +
@@ -89,6 +88,23 @@ public class Main {
         String songFromFile = SongTools.readSongFromFile("song.txt");
         System.out.println(songFromFile);
 
-        SongTools.findStringInSong(songFromFile, "Show must go on!");
+        SongTools.findStringInSong(songFromFile, "yellow");
+
+        // Regex
+        // 1)
+        String order = "app=edi_adapter_converter wingtipsTrace=8faeae6709355291 INFO  OrderCreateClient - action=EDIOrderSent originalFilename=Integration_test_Contract customerName=0005084863 orderUUID=d34149d8-88ab-4791-bb0a-46c96e034200 poNum=Test_TS5155079515 lineCount=3";
+        boolean contains = StringTools.containsOrderUUID(order);
+        System.out.println("Contains orderUUID: " + contains);
+
+        // 2)
+        System.out.println(StringTools.extractOrderUUIDFromString(order));
+
+        // 3)
+        String str = "test 2667843 (test_email@griddynamics.com) test 67483 some string ";
+        System.out.println(StringTools.extractEmailFromString(str));
+
+        // 4)
+        String str2 = "app=edi_adapter_splitter wingtipsTrace=225debfbe6e5fac7 poiFileName=Integration_test_Contract INFO  LogUtils - POI file name: [Integration_test_Contract], total number of orders successfully processed: [2]";
+        System.out.println("Number of orders created: " + StringTools.extractNumOfOrdersCreated(str2));
     }
 }
