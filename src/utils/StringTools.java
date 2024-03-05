@@ -1,5 +1,6 @@
 package utils;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -70,5 +71,15 @@ public class StringTools {
         } else {
             return 0;
         }
+    }
+
+    public static void printWordsThatStartWithDe(String str) {
+        String[] text = str.split(" ");
+        for (String s: text) {
+            if (s.toLowerCase().startsWith("de")) {
+                System.out.print(s + " ");
+            }
+        }
+        System.out.println();
     }
 }
