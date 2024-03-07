@@ -8,6 +8,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringTools {
+
+    private StringTools() throws InstantiationException {
+        throw new InstantiationException(String.format("Utility class %s should not be instantiated ",
+                Class.class.getClass().getName()));
+    }
+
     public static String removeChars(String str, String c1, String c2) {
         str = str.replace(c1, "");
         str = str.replace(c2, "");
