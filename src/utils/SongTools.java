@@ -5,6 +5,12 @@ import exceptions.BeatlesException;
 import java.io.*;
 
 public class SongTools {
+
+    private SongTools() throws InstantiationException {
+        throw new InstantiationException(String.format("Utility class %s should not be instantiated ",
+                Class.class.getClass().getName()));
+    }
+
     //Also there is a way to read a file using FileInputStream
     public static void writeSongToFile(String filename, String song) {
         try(PrintWriter printWriter = new PrintWriter(filename)){
